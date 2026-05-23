@@ -1,10 +1,4 @@
 jdk:
   - openjdk17
 install:
-  - ./gradlew :orgonkit:assembleRelease 2>&1
-  - echo "=== AAR search ==="
-  - find . -name "*.aar" 2>/dev/null
-  - echo "=== Build dir ==="
-  - ls -la orgonkit/build/outputs/aar/ 2>/dev/null || echo "aar dir not found"
-  - echo "=== Gradle tasks ==="
-  - ./gradlew :orgonkit:tasks --all 2>&1 | grep -i "publish\|install\|maven"
+  - ./gradlew :orgonkit:assembleRelease --stacktrace
