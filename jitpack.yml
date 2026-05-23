@@ -1,6 +1,7 @@
 jdk:
   - openjdk17
 install:
-  - ./gradlew :orgonkit:assembleRelease
-artifacts:
-  - orgonkit/build/outputs/aar/orgonkit-release.aar
+  - ./gradlew :orgonkit:assembleRelease :orgonkit:publishToMavenLocal --info 2>&1 | tail -50
+  - find ~/.m2 -name "*.aar" -o -name "*.pom" 2>/dev/null | head -20
+  - find . -name "*.aar" 2>/dev/null
+  - cat orgonkit/build.gradle
