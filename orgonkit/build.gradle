@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'maven-publish'
 }
 
 android {
@@ -20,12 +21,6 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
-
-    publishing {
-        singleVariant('release') {
-            withSourcesJar()
-        }
-    }
 }
 
 dependencies {
@@ -37,15 +32,13 @@ dependencies {
     implementation 'com.github.horizontalsystems:hd-wallet-kit-android:0.3.1'
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.github.Deepalexon'
-                artifactId = 'orgon-kit-android'
-                version = '1.0.2'
-            }
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId 'com.github.Deepalexon'
+            artifactId 'orgon-kit-android'
+            version '1.0.0'
+            artifact("$buildDir/outputs/aar/orgonkit-release.aar")
         }
     }
 }

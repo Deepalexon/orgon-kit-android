@@ -1,3 +1,2 @@
 rootProject.name = "orgon-kit-android"
 include ':orgonkit'
-include ':app'
