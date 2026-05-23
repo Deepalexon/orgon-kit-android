@@ -1,4 +1,4 @@
 jdk:
   - openjdk17
 install:
-  - ./gradlew :orgonkit:assembleRelease :orgonkit:publishToMavenLocal
+  - ./gradlew :orgonkit:publishReleasePublicationToMavenLocal
