@@ -1,9 +1,5 @@
 jdk:
   - openjdk17
 install:
-  - echo "=== Root ===" && ls -la
-  - echo "=== orgonkit ===" && ls -la orgonkit/
-  - echo "=== orgonkit/src ===" && find orgonkit/src -type f 2>/dev/null || echo "no src dir"
-  - echo "=== All kt files ===" && find . -name "*.kt" 2>/dev/null
-  - echo "=== settings.gradle ===" && cat settings.gradle
-  - echo "=== build.gradle ===" && cat build.gradle
+  - ./gradlew :orgonkit:assembleRelease --stacktrace
+  - find . -name "*.aar"
